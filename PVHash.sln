@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVHash", "PVHash\PVHash.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{3DB6038D-8913-4D04-B5C0-09C3A5D61680}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{AD651554-D0A1-41CD-AC27-F4E28898564D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEncryption", "TestEncryption\TestEncryption.csproj", "{8C985198-EE81-46A6-B2C3-A0FCF9437EFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3DB6038D-8913-4D04-B5C0-09C3A5D61680}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB6038D-8913-4D04-B5C0-09C3A5D61680}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB6038D-8913-4D04-B5C0-09C3A5D61680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD651554-D0A1-41CD-AC27-F4E28898564D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD651554-D0A1-41CD-AC27-F4E28898564D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD651554-D0A1-41CD-AC27-F4E28898564D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD651554-D0A1-41CD-AC27-F4E28898564D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C985198-EE81-46A6-B2C3-A0FCF9437EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C985198-EE81-46A6-B2C3-A0FCF9437EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C985198-EE81-46A6-B2C3-A0FCF9437EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C985198-EE81-46A6-B2C3-A0FCF9437EFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,12 +14,25 @@ namespace PV.Hash
         private int m_HashSize = 32;
         private int m_Iterations = 50000;
 
-        public string Compute(string password)
+        public PasswordParameters Compute(string password)
         {
-            return Compute(password, m_Iterations);
+            string hashstring;
+
+            hashstring = ComputeHashString(password);
+
+            return new PasswordParameters
+            {
+                Salt = hashstring.Split('$')[0],
+                Hash = hashstring.Split('$')[1]
+            };
+        }       
+
+        private string ComputeHashString(string password)
+        {
+            return ComputeFurther(password, m_Iterations);
         }
 
-        private string Compute(string password, int iterations)
+        private string ComputeFurther(string password, int iterations)
         {
             using (Rfc2898DeriveBytes objDeriveBytes = new Rfc2898DeriveBytes(password, m_SaltSize, iterations))
             {
@@ -39,7 +52,12 @@ namespace PV.Hash
                 );            
         }
 
-        public bool Verify(string password, string passwordHashString)
+        public bool Verify(string password, string salt, string hash)
+        {
+            return Verify(password, string.Join(Constants.Splitter.ToString(), salt, hash));
+        }
+
+        private bool Verify(string password, string passwordHashString)
         {
             string _salt, _hash;
             int _hashSize;
@@ -72,5 +90,7 @@ namespace PV.Hash
             hash = passwordHashString.Split('$')[1];           
             hashSize = Convert.FromBase64String(hash).Length;
         }
+
+       
     }
 }

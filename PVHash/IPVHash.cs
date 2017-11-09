@@ -8,8 +8,7 @@ namespace PV.Hash
 {
     public interface IPVHash
     {
-        string Compute(string password);
-        //string Compute(string password, int iterations);
-        bool Verify(string password, string passwordHashString);        
+        PasswordParameters Compute(string password);
+        bool Verify(string password, string salt, string hash);                
     }
 }
