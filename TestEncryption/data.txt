@@ -1,0 +1,1 @@
+﻿{"connectionString" : "Data Source=sqlserver;Initial Catalog=ParcelHero_TEST;user id=sa;password=pass#word1;Connect Timeout=600;max pool size=100000;", "tableName":"M_WebUsersForHash21"}

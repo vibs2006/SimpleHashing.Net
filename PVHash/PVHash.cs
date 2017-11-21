@@ -12,20 +12,25 @@ namespace PV.Hash
     {
         private int m_SaltSize = 16;
         private int m_HashSize = 32;
-        private int m_Iterations = 50000;
+        private int m_Iterations = 5000;
 
-        public PasswordParameters Compute(string password)
+        //public PasswordParameters Compute(string password)
+        //{
+        //    string hashstring;
+
+        //    hashstring = ComputeHashString(password);
+
+        //    return new PasswordParameters
+        //    {
+        //        Salt = hashstring.Split('$')[0],
+        //        Hash = hashstring.Split('$')[1]
+        //    };
+        //}       
+
+        public string Compute(string password)
         {
-            string hashstring;
-
-            hashstring = ComputeHashString(password);
-
-            return new PasswordParameters
-            {
-                Salt = hashstring.Split('$')[0],
-                Hash = hashstring.Split('$')[1]
-            };
-        }       
+            return ComputeHashString(password);
+        }
 
         private string ComputeHashString(string password)
         {
@@ -52,24 +57,36 @@ namespace PV.Hash
                 );            
         }
 
-        public bool Verify(string password, string salt, string hash)
-        {
-            return Verify(password, string.Join(Constants.Splitter.ToString(), salt, hash));
-        }
+        //public bool Verify(string password, string salt, string hash)
+        //{
+        //    return Verify(password, string.Join(Constants.Splitter.ToString(), salt, hash));
+        //}
 
-        private bool Verify(string password, string passwordHashString)
+        //public bool Verify(string password, string hashString)
+        //{
+
+        //}
+
+        public bool Verify(string password, string passwordHashString)
         {
             string _salt, _hash;
             int _hashSize;
             processParameters(passwordHashString, out _hash, out _salt,out _hashSize);
             //Only test cases start
-            Console.WriteLine("Hash is " + _hash);
-            Console.WriteLine("Salt is " + _salt);
+            //Console.WriteLine("Hash is " + _hash);
+            //Console.WriteLine("Salt is " + _salt);
             //test diagnose end
 
             string newPasswordHash = ComputeHash(password, _salt, _hashSize);
 
             return _hash == newPasswordHash;
+        }
+
+        private void processParameters(string passwordHashString, out string hash, out string salt, out int hashSize)
+        {
+            salt = passwordHashString.Split('$')[0];
+            hash = passwordHashString.Split('$')[1];
+            hashSize = Convert.FromBase64String(hash).Length;
         }
 
         private string ComputeHash(string password, string _salt, int _hashSize)
@@ -83,14 +100,5 @@ namespace PV.Hash
                 return Convert.ToBase64String(hash);
             }
         }
-
-        private void processParameters (string passwordHashString, out string hash, out string salt, out int hashSize )
-        {
-            salt = passwordHashString.Split('$')[0];
-            hash = passwordHashString.Split('$')[1];           
-            hashSize = Convert.FromBase64String(hash).Length;
-        }
-
-       
     }
 }

@@ -42,6 +42,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnSaveInDatabase = new System.Windows.Forms.Button();
             this.btnVerifyFromDatabase = new System.Windows.Forms.Button();
+            this.btnUpdateAllUsersWithNewPassword = new System.Windows.Forms.Button();
+            this.btnVerifyAllUsers = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtUserNameToVerify = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPasswordToVerify = new System.Windows.Forms.TextBox();
+            this.lblIndividualUserHashVerificationStatus = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTableName = new System.Windows.Forms.TextBox();
+            this.btnCheckIndividualUsernameNewPassword = new System.Windows.Forms.Button();
+            this.lblConnectionString = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblBatchStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +77,8 @@
             // 
             this.txtSalt.Location = new System.Drawing.Point(146, 116);
             this.txtSalt.Name = "txtSalt";
-            this.txtSalt.Size = new System.Drawing.Size(343, 20);
+            this.txtSalt.ReadOnly = true;
+            this.txtSalt.Size = new System.Drawing.Size(285, 20);
             this.txtSalt.TabIndex = 2;
             // 
             // label2
@@ -89,7 +103,8 @@
             // 
             this.txtHash.Location = new System.Drawing.Point(146, 142);
             this.txtHash.Name = "txtHash";
-            this.txtHash.Size = new System.Drawing.Size(343, 20);
+            this.txtHash.ReadOnly = true;
+            this.txtHash.Size = new System.Drawing.Size(285, 20);
             this.txtHash.TabIndex = 5;
             // 
             // btnGenerate
@@ -168,11 +183,138 @@
             this.btnVerifyFromDatabase.UseVisualStyleBackColor = true;
             this.btnVerifyFromDatabase.Click += new System.EventHandler(this.btnVerifyFromDatabase_Click);
             // 
+            // btnUpdateAllUsersWithNewPassword
+            // 
+            this.btnUpdateAllUsersWithNewPassword.Location = new System.Drawing.Point(479, 61);
+            this.btnUpdateAllUsersWithNewPassword.Name = "btnUpdateAllUsersWithNewPassword";
+            this.btnUpdateAllUsersWithNewPassword.Size = new System.Drawing.Size(337, 23);
+            this.btnUpdateAllUsersWithNewPassword.TabIndex = 18;
+            this.btnUpdateAllUsersWithNewPassword.Text = "Update All Users with New Hash Password";
+            this.btnUpdateAllUsersWithNewPassword.UseVisualStyleBackColor = true;
+            this.btnUpdateAllUsersWithNewPassword.Click += new System.EventHandler(this.btnUpdateAllUsersWithNewPassword_Click);
+            // 
+            // btnVerifyAllUsers
+            // 
+            this.btnVerifyAllUsers.Location = new System.Drawing.Point(479, 90);
+            this.btnVerifyAllUsers.Name = "btnVerifyAllUsers";
+            this.btnVerifyAllUsers.Size = new System.Drawing.Size(337, 23);
+            this.btnVerifyAllUsers.TabIndex = 20;
+            this.btnVerifyAllUsers.Text = "Verify All Users with New Password";
+            this.btnVerifyAllUsers.UseVisualStyleBackColor = true;
+            this.btnVerifyAllUsers.Click += new System.EventHandler(this.btnVerifyAllUsers_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(476, 181);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Enter UserName";
+            // 
+            // txtUserNameToVerify
+            // 
+            this.txtUserNameToVerify.Location = new System.Drawing.Point(587, 181);
+            this.txtUserNameToVerify.Name = "txtUserNameToVerify";
+            this.txtUserNameToVerify.Size = new System.Drawing.Size(177, 20);
+            this.txtUserNameToVerify.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(476, 210);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Enter Password";
+            // 
+            // txtPasswordToVerify
+            // 
+            this.txtPasswordToVerify.Location = new System.Drawing.Point(587, 210);
+            this.txtPasswordToVerify.Name = "txtPasswordToVerify";
+            this.txtPasswordToVerify.Size = new System.Drawing.Size(177, 20);
+            this.txtPasswordToVerify.TabIndex = 24;
+            // 
+            // lblIndividualUserHashVerificationStatus
+            // 
+            this.lblIndividualUserHashVerificationStatus.AutoSize = true;
+            this.lblIndividualUserHashVerificationStatus.Location = new System.Drawing.Point(584, 239);
+            this.lblIndividualUserHashVerificationStatus.Name = "lblIndividualUserHashVerificationStatus";
+            this.lblIndividualUserHashVerificationStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblIndividualUserHashVerificationStatus.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(476, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Table Name";
+            // 
+            // txtTableName
+            // 
+            this.txtTableName.Location = new System.Drawing.Point(587, 32);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.ReadOnly = true;
+            this.txtTableName.Size = new System.Drawing.Size(146, 20);
+            this.txtTableName.TabIndex = 16;
+            this.txtTableName.Text = "M_WebUsersForHash";
+            // 
+            // btnCheckIndividualUsernameNewPassword
+            // 
+            this.btnCheckIndividualUsernameNewPassword.Location = new System.Drawing.Point(587, 258);
+            this.btnCheckIndividualUsernameNewPassword.Name = "btnCheckIndividualUsernameNewPassword";
+            this.btnCheckIndividualUsernameNewPassword.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckIndividualUsernameNewPassword.TabIndex = 26;
+            this.btnCheckIndividualUsernameNewPassword.Text = "Verify";
+            this.btnCheckIndividualUsernameNewPassword.UseVisualStyleBackColor = true;
+            this.btnCheckIndividualUsernameNewPassword.Click += new System.EventHandler(this.btnCheckIndividualUsernameNewPassword_Click);
+            // 
+            // lblConnectionString
+            // 
+            this.lblConnectionString.AutoSize = true;
+            this.lblConnectionString.Location = new System.Drawing.Point(12, 440);
+            this.lblConnectionString.Name = "lblConnectionString";
+            this.lblConnectionString.Size = new System.Drawing.Size(35, 13);
+            this.lblConnectionString.TabIndex = 27;
+            this.lblConnectionString.Text = "label9";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(479, 116);
+            this.progressBar1.Minimum = 1;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(337, 23);
+            this.progressBar1.TabIndex = 28;
+            this.progressBar1.Value = 1;
+            // 
+            // lblBatchStatus
+            // 
+            this.lblBatchStatus.AutoSize = true;
+            this.lblBatchStatus.Location = new System.Drawing.Point(476, 145);
+            this.lblBatchStatus.Name = "lblBatchStatus";
+            this.lblBatchStatus.Size = new System.Drawing.Size(0, 13);
+            this.lblBatchStatus.TabIndex = 29;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 372);
+            this.ClientSize = new System.Drawing.Size(935, 462);
+            this.Controls.Add(this.lblBatchStatus);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.lblConnectionString);
+            this.Controls.Add(this.btnCheckIndividualUsernameNewPassword);
+            this.Controls.Add(this.lblIndividualUserHashVerificationStatus);
+            this.Controls.Add(this.txtPasswordToVerify);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtUserNameToVerify);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnVerifyAllUsers);
+            this.Controls.Add(this.btnUpdateAllUsersWithNewPassword);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtTableName);
             this.Controls.Add(this.btnVerifyFromDatabase);
             this.Controls.Add(this.btnSaveInDatabase);
             this.Controls.Add(this.label5);
@@ -211,6 +353,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSaveInDatabase;
         private System.Windows.Forms.Button btnVerifyFromDatabase;
+        private System.Windows.Forms.Button btnUpdateAllUsersWithNewPassword;
+        private System.Windows.Forms.Button btnVerifyAllUsers;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtUserNameToVerify;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPasswordToVerify;
+        private System.Windows.Forms.Label lblIndividualUserHashVerificationStatus;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtTableName;
+        private System.Windows.Forms.Button btnCheckIndividualUsernameNewPassword;
+        private System.Windows.Forms.Label lblConnectionString;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblBatchStatus;
     }
 }
 

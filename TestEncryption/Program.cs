@@ -20,9 +20,9 @@ namespace TestEncryption
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Exception. You might have entered illegal values. Launch Appliation again. ");
+                MessageBox.Show(ex.Message.ToString());
             }
         }
     }

@@ -27,7 +27,7 @@ namespace ConsoleApplication1
                     password = "TestPassword";
                 }
 
-                objPasswordParams = i.Compute(password);
+                //objPasswordParams = i.Compute(password);
                 Console.WriteLine($"Generated hash and salt is:\n");
                 Console.WriteLine("Salt: " + objPasswordParams.Salt);
                 Console.WriteLine("Hash: " + objPasswordParams.Hash);
@@ -44,10 +44,10 @@ namespace ConsoleApplication1
                 string enteredSalt = Console.ReadLine();
                 Console.WriteLine("\nEnter Saved Hash from DB or File System (Encrypted)");
                 string enteredHash = Console.ReadLine();
-                Console.WriteLine("Matched output is = " + i.Verify(password, enteredSalt,enteredHash).ToString());
+                //Console.WriteLine("Matched output is = " + i.Verify(password, enteredSalt, enteredHash).ToString());
                 Console.WriteLine("Do you want to enter more hash combinations for checking (Y/N)");
             } while (Console.ReadLine() == "y" || Console.ReadLine() == "y");
-            
+
         }
     }
 }
