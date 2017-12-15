@@ -50,7 +50,7 @@ namespace Data
         {
             using (SqlConnection conn = new SqlConnection(connectionString: connectionString))
             {
-                return conn.Query<UserData>($"select [NewPassword], [Password] as PlainTextPassword, [User_Name] from {tableName}", 
+                return conn.Query<UserData>($"select [NewPassword], [Password] as PlainTextPassword, [User_Name] from {tableName} where ([Password] <> '') and ([Password] is not null) ", 
                     null, null, true, null, CommandType.Text);
             }
         }
